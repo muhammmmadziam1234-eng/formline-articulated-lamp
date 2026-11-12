@@ -1,10 +1,14 @@
 # Formline
 
-A fictional precision desk lamp designed as an articulated study in graphite, fired-orange aluminum and warm opal light.
+Formline is an articulated desk lamp design in graphite, fired-orange aluminum, and warm opal light.
 
 - **Hero** — the complete lamp in a warm architectural studio, with the shade and base read as one silhouette.
 - **Detail** — the elbow stack, with its milled links, pin cap, thrust washers and power-cable sweep.
 - **Editable assembly** — Formline’s meshes, procedural materials, pivots, lighting and two cameras are organized into named collections in formline.blend.
+
+![Formline desk lamp studio render](renders/hero.png)
+
+[Product campaign](https://github.com/muhammmmadziam1234-eng/cirrus-formline-ad-campaigns#formline)
 
 ## Pose the lamp
 
