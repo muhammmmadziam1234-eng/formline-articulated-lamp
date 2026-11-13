@@ -17,6 +17,9 @@ from mathutils import Vector
 
 
 ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT))
+import articulation
+
 POSE = {
     "Shoulder tilt": (-28.0, -44.0, -14.0, "Lower linkage tilt from vertical"),
     "Elbow bend": (94.0, 69.0, 107.0, "Upper linkage angle relative to the lower linkage"),
@@ -595,6 +598,8 @@ def validate(scene, rig, pivots, axles, diffuser, cable, anchors, hero, detail):
 
 def set_render_settings(scene):
     scene.render.engine = "CYCLES"
+    scene.render.threads_mode = "FIXED"
+    scene.render.threads = 3
     scene.cycles.device = "CPU"
     scene.cycles.samples = 36
     scene.cycles.use_adaptive_sampling = True
@@ -632,18 +637,29 @@ def main():
     render_options = parser.add_mutually_exclusive_group()
     render_options.add_argument("--build-only", action="store_true", help="Skip PNG rendering")
     render_options.add_argument("--view", choices=VIEW_SETTINGS, help="Render only the selected view")
+    render_options.add_argument("--motion", action="store_true", help="Render the articulation study")
     arguments = parser.parse_args(sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else [])
 
     scene, rig, pivots, axles, diffuser, cable, anchors, hero, detail = build_scene()
+    scene.name = "Studio stills"
     set_render_settings(scene)
     validate(scene, rig, pivots, axles, diffuser, cable, anchors, hero, detail)
     prepare_editing(rig)
+    study, motion_rig, evidence = articulation.build(
+        scene, rig, pivots, axles, diffuser, cable, anchors, POSE, camera
+    )
+    prepare_editing(motion_rig)
+    articulation.write_evidence(evidence, ROOT / "articulation-evidence.json")
     bpy.context.preferences.filepaths.save_version = 0
     render_dir = ROOT / "renders"
     render_dir.mkdir(exist_ok=True)
     bpy.ops.wm.save_as_mainfile(filepath=str(ROOT / "formline.blend"))
     if arguments.build_only:
         return
+    if arguments.motion:
+        articulation.render(study, render_dir)
+        return
+    bpy.context.window.scene = scene
     for view in (arguments.view,) if arguments.view else VIEW_SETTINGS:
         set_view(scene, view)
         scene.render.filepath = str(render_dir / f"{view}.png")

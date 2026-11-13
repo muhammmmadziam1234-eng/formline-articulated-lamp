@@ -1,0 +1,124 @@
+{
+  "datum": "Center of the opal diffuser's local bounding box",
+  "axes": {
+    "forward_reach_bu": "Signed +X from base center",
+    "height_bu": "+Z from the studio floor",
+    "shade_pitch_deg": "Shade axis from +X toward +Z, positive nose-up"
+  },
+  "joint_order": [
+    "Shoulder tilt",
+    "Elbow bend",
+    "Head pitch"
+  ],
+  "grid_points_per_joint": [
+    7,
+    9,
+    12
+  ],
+  "grid_pose_count": 756,
+  "sampled_ranges": {
+    "forward_reach_bu": [
+      -0.32541513442993164,
+      1.8756451606750488
+    ],
+    "height_bu": [
+      1.317784309387207,
+      4.106379508972168
+    ],
+    "shade_pitch_deg": [
+      -55.00000172523359,
+      65.00000493150485
+    ],
+    "diffuser_box_floor_clearance_bu": [
+      0.7979069948196411,
+      3.542616128921509
+    ]
+  },
+  "motion": {
+    "fps": 15,
+    "playback_frames": [
+      1,
+      90
+    ],
+    "verified_frames_including_loop_key": 91,
+    "rendered_sequence_frames": [
+      1,
+      14,
+      21,
+      35,
+      44,
+      57,
+      64,
+      77
+    ],
+    "minimum_normalized_camera_margin": 0.08101862668991089,
+    "maximum_cable_anchor_to_surface_bu": 0.019999995827674866,
+    "poses": [
+      {
+        "frame": 1,
+        "pose": "Default",
+        "joint_angles_deg": [
+          -28.0,
+          94.0,
+          -59.0
+        ],
+        "forward_reach_bu": 1.3094077110290527,
+        "height_bu": 2.540313720703125,
+        "shade_pitch_deg": -7.000000341492439,
+        "diffuser_box_floor_clearance_bu": 2.449814558029175
+      },
+      {
+        "frame": 21,
+        "pose": "Raised",
+        "joint_angles_deg": [
+          -44.0,
+          69.0,
+          -38.0
+        ],
+        "forward_reach_bu": 0.08162432909011841,
+        "height_bu": 3.4449076652526855,
+        "shade_pitch_deg": 13.000002829777692,
+        "diffuser_box_floor_clearance_bu": 3.290297269821167
+      },
+      {
+        "frame": 44,
+        "pose": "Forward",
+        "joint_angles_deg": [
+          -14.0,
+          97.0,
+          -90.0
+        ],
+        "forward_reach_bu": 1.8676204681396484,
+        "height_bu": 2.403310775756836,
+        "shade_pitch_deg": 7.000005842146261,
+        "diffuser_box_floor_clearance_bu": 2.3128113746643066
+      },
+      {
+        "frame": 64,
+        "pose": "Lowered",
+        "joint_angles_deg": [
+          -21.0,
+          107.0,
+          -48.0
+        ],
+        "forward_reach_bu": 1.4124016761779785,
+        "height_bu": 1.6238377094268799,
+        "shade_pitch_deg": -37.999997127967966,
+        "diffuser_box_floor_clearance_bu": 1.227931022644043
+      },
+      {
+        "frame": 84,
+        "pose": "Return",
+        "joint_angles_deg": [
+          -28.0,
+          94.0,
+          -59.0
+        ],
+        "forward_reach_bu": 1.3094077110290527,
+        "height_bu": 2.540313720703125,
+        "shade_pitch_deg": -7.000000341492439,
+        "diffuser_box_floor_clearance_bu": 2.449814558029175
+      }
+    ]
+  }
+}
